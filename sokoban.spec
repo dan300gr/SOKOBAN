@@ -1,0 +1,40 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+block_cipher = None
+
+a = Analysis(['game.py'],
+             pathex=['.'],
+             binaries=[],
+             datas=[('img_buttons', 'img_buttons'),
+                    ('img_box', 'img_box'),
+                    ('img_celebration', 'img_celebration'),
+                    ('img_inicio', 'img_inicio'),
+                    ('img_levels', 'img_levels'),
+                    ('img_player', 'img_player'),
+                    ('sounds', 'sounds'),
+                    ('minecraft.ttf', '.')],
+             hiddenimports=[],
+             hookspath=[],
+             runtime_hooks=[],
+             excludes=[],
+             win_no_prefer_redirects=False,
+             win_private_assemblies=False,
+             cipher=block_cipher,
+             noarchive=False)
+pyz = PYZ(a.pure, a.zipped_data,
+             cipher=block_cipher)
+exe = EXE(pyz,
+          a.scripts,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
+          [],
+          name='Sokoban',
+          debug=False,
+          bootloader_ignore_signals=False,
+          strip=False,
+          upx=True,
+          upx_exclude=[],
+          runtime_tmpdir=None,
+          console=False,
+          icon='img_inicio/icono.ico')
